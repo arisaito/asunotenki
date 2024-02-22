@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>明日の天気</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <script src="./static/js/script.bundle.js"></script>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="header">
+        <div class="current-location-button c-button" id="current-location-button"><img src="./static/img/icon-pin.png"></div>
+        <div class="input-container">
+          <input class="search-input" id="address-input" type="text" name="address" maxlength="20" placeholder="東京都">
+          <div class="input-delete is-hidden" id="input-delete"><img src="./static/img/icon-delete.png"></div>
+        </div>
+      </div>
+      <ul class="search-results-ul" id="search-results-ul"></ul>
+      <div class="square" id="square"></div>
+      <div class="text-container">
+        <p class="loading-text" id="loading-text">Loading</p>
+        <p class="main-text is-hidden" id="main-text">明日の天気<br><span id="place-text">東京都</span>は朝から<span id="word-text"> </span>です</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+@use "./foundation/reset";
+@use "./foundation/variable" as var;
+@use "./foundation/font";
+
+body {
+  background: var.$COLOR_WHITE;
+  // background: #80a8a8;
+  // color: #ff0d51;
+  // color: var.$COLOR_BLACK;
+  font-size: 1rem;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  // margin: 1rem;
+  padding: 1rem;
+  .header {
+    display: flex;
+    align-items: center;
+    .current-location-button {
+      width: 1.5rem;
+      display: inline-block;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 350px;
+
+      .search-input {
+        font-family: "Zen Kaku Gothic New", sans-serif;
+        font-size: 1rem;
+        margin-left: 1rem;
+        padding: 0.1rem 0.35rem;
+        width: 100%;
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+      .input-delete {
+        position: absolute;
+        top: 21%;
+        right: 0.6rem;
+        // transform: translateY(-50%);
+        width: 0.75rem;
+        height: 0.75rem;
+        opacity: 0.4;
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: auto;
+        }
+        &.is-hidden {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .search-results-ul {
+    position: absolute;
+    background: white;
+    width: 90%;
+    margin-left: 2.5rem;
+    margin: 0.3rem 0 0 2.3rem;
+    line-height: 1.3rem;
+    li {
+      cursor: pointer;
+      padding: 0.1rem 0.3rem;
+    }
+  }
+
+  .square {
+    width: 100%;
+    height: 85%;
+    background: transparent;
+    margin: 1rem auto;
+  }
+
+  .text-container {
+    display: flex;
+    width: 100%;
+    p {
+      transition: 0.3s;
+    }
+    .main-text {
+      opacity: 1;
+      line-height: 1.2rem;
+      margin: auto auto auto 0;
+    }
+    .loading-text {
+      position: absolute;
+    }
+    .is-hidden {
+      opacity: 0;
+    }
+  }
+}
+
+.c-button {
+  cursor: pointer;
+}

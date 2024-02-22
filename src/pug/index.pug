@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+    title 明日の天気
+    link(rel="stylesheet", href="./static/css/style.css")
+    script(src="./static/js/script.bundle.js")
+  body
+    #container.container
+      .header
+        #current-location-button.current-location-button.c-button
+          img(src="./static/img/icon-pin.png")
+        .input-container
+          input#address-input.search-input(type="text", name="address", maxlength="20", placeholder="東京都")
+          #input-delete.input-delete.is-hidden
+            img(src="./static/img/icon-delete.png") 
+      ul#search-results-ul.search-results-ul
+      //- #translation-button.translation-button.c-button ●
+      #square.square
+      .text-container
+        p#loading-text.loading-text Loading
+        p#main-text.main-text.is-hidden
+          | 明日の天気<br>
+          span#place-text 東京都
+          | は朝から
+          span#word-text 
+          | です
+        

@@ -1,3 +1,5 @@
+module/
+
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
