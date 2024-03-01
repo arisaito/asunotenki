@@ -1,16 +1,10 @@
 import UpdateJishoAPI from "../../module/unofficial-jisho-api-master";
 import { DataProcessor } from "./classes/DataProcessor";
-
 const jisho = new UpdateJishoAPI();
 const dataProcessor = new DataProcessor();
 
-const getApiKey = () => {
-  console.log("get api key");
-  if (!process.env.API_KEY) {
-    console.log("env not found");
-    console.log(process.env.API_KEY);
-  }
-  return process.env.API_KEY;
+const getKey = () => {
+  return process.env.KEY;
 };
 
 let index: number;
@@ -193,10 +187,10 @@ const getCurrentLocationName = () => {
           latitude = position.coords.latitude;
           longitude = position.coords.longitude;
 
-          const apiKey = getApiKey();
+          const aKey = getKey();
           const reverseGeocodingApiUrl =
             "https://map.yahooapis.jp/geoapi/V1/reverseGeoCoder";
-          const requestUrl = `${reverseGeocodingApiUrl}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&output=json`;
+          const requestUrl = `${reverseGeocodingApiUrl}?lat=${latitude}&lon=${longitude}&appid=${aKey}&output=json`;
 
           // APIリクエストの送信
           fetch(requestUrl)
@@ -232,9 +226,9 @@ const getCurrentLocationName = () => {
 
 const searchLocationName = (address: string) => {
   return new Promise((resolve, reject) => {
-    const apiKey = getApiKey();
+    const aKey = getKey();
     const geocodingApiUrl = "https://map.yahooapis.jp/geocode/V1/geoCoder";
-    const requestUrl = `${geocodingApiUrl}?appid=${apiKey}&query=${encodeURIComponent(
+    const requestUrl = `${geocodingApiUrl}?appid=${aKey}&query=${encodeURIComponent(
       address
     )}&output=json`;
 

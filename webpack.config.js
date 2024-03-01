@@ -8,7 +8,7 @@ const webpack = require("webpack");
 
 const app = {
   mode: "development",
-
+  target: "node",
   entry: {
     script: "./src/ts/script.ts",
   },
@@ -40,6 +40,9 @@ const app = {
 
   resolve: {
     extensions: [".ts", ".js"],
+    fallback: {
+      path: require.resolve("path-browserify"),
+    },
   },
 
   target: ["web", "es5"],
@@ -53,20 +56,11 @@ const app = {
       server: { baseDir: ["build"] },
       open: "external",
     }),
-    // @@@
-    // new webpack.DefinePlugin({
-    //   "process.env": JSON.stringify(env),
-    // }),
+    new webpack.ProvidePlugin({
+      process: "process/browser",
+    }),
   ],
 };
-
-// if (env !== undefined) {
-//   app.plugins.push(
-//     new webpack.DefinePlugin({
-//       "process.env": JSON.stringify(env),
-//     })
-//   );
-// }
 
 const templates = globule.find("./src/pug/**/*.pug", {
   ignore: ["./src/pug/**/_*.pug"],
