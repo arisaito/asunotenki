@@ -7,7 +7,7 @@ const dataProcessor = new DataProcessor();
 const getApiKey = () => {
   console.log("get api key");
   if (!process.env.API_KEY) {
-    console.log("process.env not found");
+    console.log("env not found");
     console.log(process.env.API_KEY);
   }
   return process.env.API_KEY;
