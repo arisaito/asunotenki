@@ -53,11 +53,27 @@ const app = {
       server: { baseDir: ["build"] },
       open: "external",
     }),
-    new webpack.DefinePlugin({
-      "process.env": JSON.stringify(env),
-    }),
+    // new webpack.DefinePlugin({
+    //   "process.env": JSON.stringify(env),
+    // }),
+
+    // env !== undefined
+    //   ? new webpack.DefinePlugin({
+    //       "process.env": JSON.stringify(env),
+    //     })
+    //   : new webpack.DefinePlugin({
+    //       "process.env": undefined,
+    //     }),
   ],
 };
+
+if (env !== undefined) {
+  app.plugins.push(
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(env),
+    })
+  );
+}
 
 const templates = globule.find("./src/pug/**/*.pug", {
   ignore: ["./src/pug/**/_*.pug"],

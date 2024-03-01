@@ -9,7 +9,8 @@
     "webpack:dev": "NODE_OPTIONS='--openssl-legacy-provider' webpack --watch",
     "webpack:prod": "NODE_OPTIONS='--openssl-legacy-provider' webpack --mode=production",
     "start": "yarn sass:dev & yarn webpack:dev",
-    "build": "yarn sass:prod & yarn webpack:prod"
+    "build": "yarn sass:prod & yarn webpack:prod",
+    "deploy": "yarn build && gh-pages -d build -b deploy"
   },
   "devDependencies": {
     "browser-sync": "^2.26.14",
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
+    "gh-pages": "^6.1.1",
     "path": "^0.12.7",
     "process": "^0.11.10",
     "querystring-es3": "^0.2.1",
